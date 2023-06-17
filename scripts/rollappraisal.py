@@ -38,9 +38,10 @@ def navigate_roll_appraisal():
     counter = 0 
     previousMessage =""
     executed = True
+
     engine.get("https://www.light.gg/god-roll/roll-appraiser/")
-    filter = "//*[@id=\"new-sidebar\"]/ul[1]/li[2]/i"
-    engine.find_element(by=By.XPATH,value=filter).click()
+    filter_panel = "//*[@id=\"new-sidebar\"]/ul[1]/li[2]/i"
+    engine.find_element(by=By.XPATH,value=filter_panel).click()
 
     time.sleep(5)
         #   Best Possible Rank
@@ -57,8 +58,8 @@ def navigate_roll_appraisal():
         for i in weaponBreakdowns:
             i.click()
 
-        all_locked_weapons = engine.find_elements(by=By.CSS_SELECTOR, value='i.fa.pull-right.fa-unlock')
-        for weapons in all_locked_weapons:
+        all_unlocked_weapons = engine.find_elements(by=By.CSS_SELECTOR, value='i.fa.pull-right.fa-unlock')
+        for weapons in all_unlocked_weapons:
             try:
                 weapons.click()
                 counter+=1
